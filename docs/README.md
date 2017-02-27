@@ -19,7 +19,7 @@ HobbyChat is an app that lets users send and receive messages instantly.
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: /wireframes
+[wireframes]: /wireframes/
 [components]: component-hierarchy.md
 [sample-state]: sample-state.md
 [api-endpoints]: api-endpoints.md
