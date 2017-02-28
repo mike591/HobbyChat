@@ -432,3 +432,11 @@ Processing by HomeController#show as HTML
 Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-02-28 13:20:47 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 274ms (Views: 266.1ms | ActiveRecord: 0.0ms)
+
+
