@@ -7,6 +7,9 @@ end
 
 gem "omniauth-google-oauth2"
 gem "pry"
+gem "pry-rails"
+gem "annotate"
+gem "better_errors"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
