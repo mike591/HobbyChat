@@ -1,0 +1,311 @@
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2188951231143677490);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20170228184419)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "provider" character varying, "uid" character varying, "name" character varying, "oauth_token" character varying, "oauth_expires_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170228184419"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-28 18:44:40 UTC], ["updated_at", 2017-02-28 18:44:40 UTC]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(2188951231143677490)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 127.0.0.1 at 2017-02-28 10:59:47 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 654ms (Views: 642.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 10:59:50 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 10:59:50 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=9397756281e8587984942d64f29347aac3e9e2062a68c716&code=4/30YQGqG4GPse1ECnNVuV0ivfGAEMptn_EXyggGL6_do" for 127.0.0.1 at 2017-02-28 10:59:53 -0800
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"9397756281e8587984942d64f29347aac3e9e2062a68c716", "code"=>"4/30YQGqG4GPse1ECnNVuV0ivfGAEMptn_EXyggGL6_do", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "name", "oauth_token", "oauth_expires_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["name", "Michael Mach"], ["oauth_token", "ya29.GlsABJbM6isetQNVSaTfeWjvWYgLmfx3TZKpepGk0vn8D7S48_j3OdYQ7Y_Rw-JbKiDaw74BAt5A4x_u6up_kuOEszG9wlEmv1MA0-4xb5r8cgEvxO4LYeKDw1DI"], ["oauth_expires_at", 2017-02-28 19:59:53 UTC], ["created_at", 2017-02-28 18:59:54 UTC], ["updated_at", 2017-02-28 18:59:54 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 10:59:54 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-02-28 10:59:59 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 10:59:59 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:00:01 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:00:01 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=df01376a7941dbc916e74511170908891672e8fb1f415d9a&code=4/EtC0E4alS5j7UCq_ckZ1RnuLxBpeMlLe2tOiIB7Eh0I" for 127.0.0.1 at 2017-02-28 11:00:01 -0800
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"df01376a7941dbc916e74511170908891672e8fb1f415d9a", "code"=>"4/EtC0E4alS5j7UCq_ckZ1RnuLxBpeMlLe2tOiIB7Eh0I", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlsABFhyPZS8plHFAVa1mmYTb64QPfScRrXFW2y8x3V6mm1vG_axw-w4LS1EvW37wvBDQLOE8mzQFcv73D-QJNN9vjFU_iO6fd9VwFg7eQ0F1vOikag9Gsc81XLz"], ["oauth_expires_at", 2017-02-28 20:00:01 UTC], ["updated_at", 2017-02-28 19:00:02 UTC], ["id", 1]]
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 33ms (ActiveRecord: 8.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:00:02 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 43.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-02-28 11:00:03 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:00:03 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:00:04 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:00:04 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=d540d70e817b33f0ee9ea4e599a53a99fd2b2ae232516990&code=4/JnFwny6ZTaaGsnkiAMbgS4IjmWB6i3e8RugeveXY7zk" for 127.0.0.1 at 2017-02-28 11:00:05 -0800
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"d540d70e817b33f0ee9ea4e599a53a99fd2b2ae232516990", "code"=>"4/JnFwny6ZTaaGsnkiAMbgS4IjmWB6i3e8RugeveXY7zk", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlsABHUJDfJcyMPfHzlch-6Sq7NwtIwae2k43Kmz0M0PLkcTQm09jYjUE9CB7jNQkW4el8VN9UTO8fjRL7JlhUwdO8mZiN8SGYHnQZKl2deYupgwzmH0qQYUb7Cz"], ["oauth_expires_at", 2017-02-28 20:00:05 UTC], ["updated_at", 2017-02-28 19:00:05 UTC], ["id", 1]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:00:05 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 46.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-02-28 11:00:06 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:00:06 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 64ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:00:15 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:00:20 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:00:20 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=a46e90a4fbbb764e898479ef71485a5bb31c0b87fc1065ec&code=4/vRvgHuxVZpktLHmTsdWTyFvqZqFfGZQzOoYFwyhdf8o" for 127.0.0.1 at 2017-02-28 11:00:50 -0800
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"a46e90a4fbbb764e898479ef71485a5bb31c0b87fc1065ec", "code"=>"4/vRvgHuxVZpktLHmTsdWTyFvqZqFfGZQzOoYFwyhdf8o", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlsABBMutRvIMhfNiU3atyW_9JfFiA62i2nRu0iMEE099DJvRQuXV5jBzqsa-KmcydxPn97eXUIXyzTtpn9fBkxkoME0tzb8dV3FFyQn6jeDeqFK0XpA-dLvj_xn"], ["oauth_expires_at", 2017-02-28 20:00:50 UTC], ["updated_at", 2017-02-28 19:00:51 UTC], ["id", 1]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:00:51 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 69ms (Views: 64.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-02-28 11:00:55 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:00:55 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 40ms (Views: 38.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:32:21 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 17.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:32:23 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:32:23 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=1d6206e574ff8300c608c810f0286554364f4d8d5fd725cc&code=4/D35w1yg1L1De0O6aG3a0ur0NxWUTIGFSwd_yIv-Drxo" for 127.0.0.1 at 2017-02-28 11:32:23 -0800
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"1d6206e574ff8300c608c810f0286554364f4d8d5fd725cc", "code"=>"4/D35w1yg1L1De0O6aG3a0ur0NxWUTIGFSwd_yIv-Drxo", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlsABEq0TzBeLZCPGmEH_1_V1k9CtZ2nrR162mw4kRdZ_wGuLuHKGl7x4xHK6QWMJkHKK9PNeJcfPsWbifBXvFpYr-zMY_Yh0FcO3K3SoX9eDVXPQjCocmEPSJ-L"], ["oauth_expires_at", 2017-02-28 20:32:23 UTC], ["updated_at", 2017-02-28 19:32:23 UTC], ["id", 1]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 22ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:32:23 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-02-28 11:32:28 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:32:28 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:32:29 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:32:29 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=12f3794c4be3ba616846bca2d3e0b45815c87d15687e6d02&code=4/9MS80JUHqnhvLnCB1uTj5k6Q2ZPlzRAHbuDYDAG9BLw" for 127.0.0.1 at 2017-02-28 11:32:29 -0800
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"12f3794c4be3ba616846bca2d3e0b45815c87d15687e6d02", "code"=>"4/9MS80JUHqnhvLnCB1uTj5k6Q2ZPlzRAHbuDYDAG9BLw", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlsABNNP1Ov3wr3W7vsRgBtC4gNhmZ18--2nNcm8ydp8u9lRmP6WmIZt2L0t92YvvjbAe-erfPadyIfRg-ce4YyTXiPgg4BDV8N4eOabv9TDjhIBVzIX0O36ZMbQ"], ["oauth_expires_at", 2017-02-28 20:32:29 UTC], ["updated_at", 2017-02-28 19:32:30 UTC], ["id", 1]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 23ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:32:30 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 90ms (Views: 85.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-02-28 11:32:31 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:32:31 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 49ms (Views: 45.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:36:54 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 219ms (Views: 207.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:37:02 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2017-02-28 11:37:03 -0800
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=889624f812178000fcefd58c66e5fdbb3750b5385f58bdac&code=4/GD-VJRg6jLcy2w1ec8nMS2-aTHcS9-06kTvQCjyNapI" for 127.0.0.1 at 2017-02-28 11:37:27 -0800
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"889624f812178000fcefd58c66e5fdbb3750b5385f58bdac", "code"=>"4/GD-VJRg6jLcy2w1ec8nMS2-aTHcS9-06kTvQCjyNapI", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlsABNz2rbYgjebsiTjrqmz6FKJwS56qkMl9Btz5pKB0_ocVvhIWXFxOC1hVUSOW4vrmRssnq1U1fYXyFvFQbL4KsYuG64AdzczNdXTpl8bKXze5VBAW5pIJyFsJ"], ["oauth_expires_at", 2017-02-28 20:37:27 UTC], ["updated_at", 2017-02-28 19:37:27 UTC], ["id", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 121ms (ActiveRecord: 32.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:37:27 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 58ms (Views: 55.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-02-28 11:37:42 -0800
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-02-28 11:37:42 -0800
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 34ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
