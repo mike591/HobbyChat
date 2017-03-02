@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
+  root 'static_pages#show'
 
-  resources :sessions, only: [:create, :destroy]
-  resource :home, only: [:show]
+  get 'auth/google_oauth2', as: 'google_auth'
+  get 'auth/:provider/callback' => 'sessions/create'
 
-  root to: "home#show"
+  get 'sessions/destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
