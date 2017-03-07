@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#show'
 
-  get 'static_pages/show'
+  get 'dashboard', to: 'static_pages#show'
 
   get 'auth/google_oauth2', as: 'google_auth'
   get 'auth/:provider/callback', to: 'sessions#create'

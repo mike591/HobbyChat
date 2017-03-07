@@ -7,13 +7,6 @@ const receiveCurrentUser = (currentUser) => ({
   currentUser : currentUser
 });
 
-export const login = () => dispatch => (
-  SessionApiUtil.login()
-    .then(
-      res => dispatch(receiveCurrentUser(res))
-    )
-);
-
 export const logout = () => dispatch => (
   SessionApiUtil.logout()
     .then(

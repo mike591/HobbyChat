@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, hashHistory } from 'react-router';
+import HeaderContainer from '../header/header_container'
 
 class Board extends React.Component {
   constructor(props) {
@@ -10,7 +11,10 @@ class Board extends React.Component {
 
   render() {
     return(
-      <h1>Welcome to Boards</h1>
+      <div>
+        <HeaderContainer />
+        <h1>Welcome to Boards</h1>
+      </div>
     )
   }
 }
