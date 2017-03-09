@@ -1,11 +1,29 @@
-.page {
-  height: 100vh;
-  margin: 0;
-  border: 1px solid black
+.sign_in_page {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: center;
 }
 
 .sign_in_box {
+  height: 300px;
+  width: 200px;
+  margin-top: 10%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   border: 1px solid red;
+}
+
+.welcome_text {
+  text-align: center;
+}
+
+.welcome_desc {
+  text-align: center;
+}
+
+.button_to {
+  text-align: center;
+  margin-top: 10%;
 }
