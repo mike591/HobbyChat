@@ -6,8 +6,8 @@
 }
 
 .sign_in_box {
-  height: 300px;
-  width: 200px;
+  height: 500px;
+  width: 600px;
   margin-top: 10%;
   display: flex;
   justify-content: center;
@@ -26,4 +26,15 @@
 .button_to {
   text-align: center;
   margin-top: 10%;
+}
+
+.google_button {
+  width: 450px;
+  height: 80px;
+  background-position: center;
+  background-image: url(/assets/google-sign-in.png);
+}
+
+.google_button:hover {
+  cursor: pointer;
 }
