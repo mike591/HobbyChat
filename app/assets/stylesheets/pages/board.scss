@@ -1,0 +1,23 @@
+.board_tile_item {
+  border: 1px solid black;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.board_title {
+  text-align: center;
+}
+
+.board_tile_list {
+  text-align: center;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+.board_page {
+  height: 80%;
+}

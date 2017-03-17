@@ -4,6 +4,9 @@
   display: flex;
   justify-content: center;
   background-image: url(/assets/main_background.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .sign_in_box {
