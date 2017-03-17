@@ -18,9 +18,9 @@ class Header extends React.Component {
 
   render() {
     return(
-      <div>
-        <h1>Welcome to Headers</h1>
-        <button onClick={this.logout}>Log Out</button>
+      <div className="header">
+        <h1 className="header_title">HobbyChat</h1>
+        <button className="logout_button" onClick={this.logout}>Log Out</button>
       </div>
     )
   }

@@ -8,6 +8,9 @@ class Board extends React.Component {
 
   }
 
+  componentWillMount() {
+    
+  }
 
   render() {
     return(

@@ -7219,3 +7219,134 @@ Completed 200 OK in 47ms (Views: 42.8ms | ActiveRecord: 0.5ms)
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "boards" ("name", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Coding"], ["image_url", "coding.png"], ["created_at", 2017-03-17 16:32:09 UTC], ["updated_at", 2017-03-17 16:32:09 UTC]]
   [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 09:35:14 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 359ms (Views: 356.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 09:36:12 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 398ms (Views: 392.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 09:37:33 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 415ms (Views: 409.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 09:37:54 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 45ms (Views: 42.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 09:38:00 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 390ms (Views: 379.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 09:39:54 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 391ms (Views: 388.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 09:41:04 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 85ms (Views: 82.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 09:41:26 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 68ms (Views: 66.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 10:04:29 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 431ms (Views: 425.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 10:06:33 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 353ms (Views: 349.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-03-17 10:06:54 -0700
+Processing by SessionsController#destroy as */*
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-17 10:06:54 -0700
+Processing by HomeController#show as */*
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 43ms (Views: 40.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-17 10:06:54 -0700
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 49ms (Views: 47.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/auth/google_oauth2" for 127.0.0.1 at 2017-03-17 10:06:57 -0700
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=3f08e8123090ed9c4e70692d080818950178e498d367e9b7&code=4/U4RQ1S38Bas1M0LXWMRnajKS4PHSGKcTyCKTksHedxw" for 127.0.0.1 at 2017-03-17 10:06:57 -0700
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"3f08e8123090ed9c4e70692d080818950178e498d367e9b7", "code"=>"4/U4RQ1S38Bas1M0LXWMRnajKS4PHSGKcTyCKTksHedxw", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlwRBAvlffRXVG8lostK5fpcC3uqkuGuvTb1Heg4YfmIZdyD8n3eGuAh4Urvp506_RdXCfNzsXo3r0-Fmwo8KGTpinXEzmombulBLuGZiQcZa-kDhEh2f6NWo5TCDQ"], ["oauth_expires_at", 2017-03-17 18:06:57 UTC], ["updated_at", 2017-03-17 17:06:58 UTC], ["id", 1]]
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 19ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 10:06:58 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 42ms (Views: 39.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-17 10:09:26 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 340ms (Views: 337.4ms | ActiveRecord: 0.5ms)
+
+
