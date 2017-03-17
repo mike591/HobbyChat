@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'boards/index'
+
   root to: 'home#show'
 
   get 'dashboard', to: 'static_pages#show'
