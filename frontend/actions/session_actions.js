@@ -13,3 +13,10 @@ export const logout = () => dispatch => (
       res => dispatch(receiveCurrentUser(null))
     )
 );
+
+export const getCurrentUser = () => dispatch => (
+  SessionApiUtil.currentUser()
+    .then(
+      res => dispatch(receiveCurrentUser(res))
+    )
+);

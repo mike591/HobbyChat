@@ -9,7 +9,7 @@ const receiveBoards = (boards) => ({
 });
 
 // async
-export const boards = () => dispatch => (
+export const getBoards = () => dispatch => (
   APIUtils.boards()
     .then(
       res => dispatch(receiveBoards(res))
