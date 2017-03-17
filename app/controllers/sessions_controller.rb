@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  def current_user
+  def show_current_user
     @user = current_user
-    render "get_current_user.json.jbuilder"
+    render "show_current_user.json.jbuilder"
   end
 end

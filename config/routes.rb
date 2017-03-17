@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'boards/index'
-  get '/current_user', to: 'sessions#current_user'
+  get '/show_current_user', to: 'sessions#show_current_user'
 
   root to: 'home#show'
 

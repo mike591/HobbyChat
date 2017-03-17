@@ -9,10 +9,14 @@ class Board extends React.Component {
   }
 
   componentWillMount() {
-    
+    this.props.getCurrentUser().then((res) => {
+      this.props.getBoards()
+    });
   }
 
   render() {
+    
+
     return(
       <div>
         <HeaderContainer />

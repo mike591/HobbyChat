@@ -2,7 +2,7 @@ export const currentUser = () => {
   return (
     $.ajax({
       method: "GET",
-      url: "/current_user"
+      url: "/show_current_user"
     })
   );
 };
