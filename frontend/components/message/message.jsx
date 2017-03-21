@@ -7,11 +7,17 @@ class Message extends React.Component {
 
   }
 
+  componentWillMount() {
+    this.props.getCurrentUser().then((res) => {
+      this.props.getBoards()
+    });
+  }
+
   render() {
 
     return (
       <div className="message_page">
-        <h1>Message goes here!</h1>
+        <h1>{this.props.board_name}</h1>
       </div>
     )
   }

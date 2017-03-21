@@ -1,9 +1,7 @@
 import {RECEIVE_BOARDS} from '../actions/board_actions';
 
 
-const _defaultState = {
-  boards: null
-};
+const _defaultState = {};
 
 const BoardReducer = (state = _defaultState, action) => {
   Object.freeze(state);

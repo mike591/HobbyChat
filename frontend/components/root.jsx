@@ -11,7 +11,7 @@ const Root = ({ store }) => {
     <Router history={ hashHistory }>
       <Route path="/" component={ App } >
         <IndexRoute component={ BoardContainer } ></IndexRoute>
-        <Route path=":board" component={ MessageContainer }></Route>
+        <Route path=":board_id" component={ MessageContainer }></Route>
       </Route>
     </Router>
   </Provider>
