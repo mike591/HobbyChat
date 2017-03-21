@@ -10,6 +10,7 @@ class Board extends React.Component {
     }
 
     this.getBoardList = this.getBoardList.bind(this);
+    this.goToMessage = this.goToMessage.bind(this);
   }
 
   componentWillMount() {
@@ -21,6 +22,12 @@ class Board extends React.Component {
     });
   }
 
+  goToMessage(name) {
+    return () => {
+      hashHistory.push(`/${name}`);
+    }
+  }
+
   getBoardList() {
     let boards = [];
     Object.keys(this.props.boards).forEach((key) => {
@@ -30,7 +37,7 @@ class Board extends React.Component {
       }
 
       boards.push(
-        <li style={style} className="board_tile_item" key={board.id}>{board.name}</li>
+        <li style={style} onClick={this.goToMessage(board.name)} className="board_tile_item" key={board.id}>{board.name}</li>
       )
     })
     return boards

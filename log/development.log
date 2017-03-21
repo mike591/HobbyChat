@@ -13799,3 +13799,628 @@ Processing by BoardsController#index as */*
 Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 13:55:00 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 353ms (Views: 344.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 13:55:01 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.5ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 13:55:01 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.5ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-03-21 13:55:03 -0700
+Processing by SessionsController#destroy as */*
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-21 13:55:03 -0700
+Processing by HomeController#show as */*
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 32ms (Views: 28.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-21 13:55:03 -0700
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 42ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/auth/google_oauth2" for 127.0.0.1 at 2017-03-21 13:55:04 -0700
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=ee6e457c465776dc7783f2677867dba49b879e2b9a006e85&code=4/Gm0UN0V4r8mjj7W7D3qOpYekU6BqQQZE_QpplbkvhMk" for 127.0.0.1 at 2017-03-21 13:55:05 -0700
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"ee6e457c465776dc7783f2677867dba49b879e2b9a006e85", "code"=>"4/Gm0UN0V4r8mjj7W7D3qOpYekU6BqQQZE_QpplbkvhMk", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlwVBKyxgModUT-b_qRwjH4cqTTjffyzQ4JKjtk2aHKLzPJ5Dr3jvCv3enkGrz8e0gPfXlPJQYRzskTfHuVJ1WH-UVjjyQZ60x33mWCiHeaL6hGppWn2IID61-oqmg"], ["oauth_expires_at", 2017-03-21 21:55:05 UTC], ["updated_at", 2017-03-21 20:55:05 UTC], ["id", 1]]
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 20ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 13:55:05 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 96ms (Views: 91.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 13:55:05 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.7ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 13:55:06 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (3.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (6.2ms)
+Completed 200 OK in 13ms (Views: 8.9ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 13:55:07 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.6ms)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 13:55:07 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.2ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 13:55:08 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (2.1ms)
+Completed 200 OK in 42ms (Views: 34.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 13:55:08 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (1.9ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 13:55:09 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.4ms)
+Completed 200 OK in 36ms (Views: 30.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 13:55:09 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.4ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 13:56:20 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 366ms (Views: 363.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2017-03-21 13:56:22 -0700
+Processing by SessionsController#destroy as */*
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-21 13:56:22 -0700
+Processing by HomeController#show as */*
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-21 13:56:22 -0700
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 34ms (Views: 33.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/auth/google_oauth2" for 127.0.0.1 at 2017-03-21 13:56:23 -0700
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=1f37b39a6cb13b8b4eb6dcd9587b54878142a0d1dbd36bd2&code=4/uXlJOFiH6ytZB76tGp6ckpa_lSEK7l6V0Sl3CgQxpvc" for 127.0.0.1 at 2017-03-21 13:56:23 -0700
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"1f37b39a6cb13b8b4eb6dcd9587b54878142a0d1dbd36bd2", "code"=>"4/uXlJOFiH6ytZB76tGp6ckpa_lSEK7l6V0Sl3CgQxpvc", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlwVBAUOMQeWELrQpmsBifRDb-WjsJQZvznL8d8BYsrTMh8lydWxEzxB36mqKn36hzYZ4U1WSiLZgWyNwY1FYJq7zk_aAHFyINd9yHaDxfiAwIcnrlC5A6ACtCRfyw"], ["oauth_expires_at", 2017-03-21 21:56:23 UTC], ["updated_at", 2017-03-21 20:56:24 UTC], ["id", 1]]
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 26ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 13:56:24 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 47ms (Views: 40.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 13:56:24 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.7ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 13:56:24 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (1.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.4ms)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 13:56:49 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 44ms (Views: 39.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 13:56:50 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.4ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 13:56:50 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.9ms)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 13:58:17 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 344ms (Views: 335.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 13:58:28 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 67ms (Views: 55.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 13:58:29 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.5ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 13:58:29 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (1.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.5ms)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 13:59:54 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 365ms (Views: 355.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 13:59:55 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.5ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 13:59:55 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (8.1ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-21 14:00:25 -0700
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 388ms (Views: 383.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/auth/google_oauth2" for 127.0.0.1 at 2017-03-21 14:00:27 -0700
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=128fa3cb1a81f6619ee2fbec5280ca2730df67f38e2ce951&code=4/V9Is7yJzNzkBGYIMvEHqQQB1Yr_mR-vYHiN31om9yNQ" for 127.0.0.1 at 2017-03-21 14:00:28 -0700
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"128fa3cb1a81f6619ee2fbec5280ca2730df67f38e2ce951", "code"=>"4/V9Is7yJzNzkBGYIMvEHqQQB1Yr_mR-vYHiN31om9yNQ", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlwVBG2RlpiQydWDWF9yZEKBflISLYjcZrTkHrVJg-sCI_gUtndHbrR2z0dctxd2F9jDawloGfzKTE8vwUcis0q3ERBlhWvvL0XWiAbJZTkqDGgrmUEQ4Na7YgjA1g"], ["oauth_expires_at", 2017-03-21 22:00:28 UTC], ["updated_at", 2017-03-21 21:00:28 UTC], ["id", 1]]
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 28ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 14:00:28 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 55ms (Views: 46.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:00:29 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.6ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:00:29 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.7ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:00:32 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.0ms)
+Completed 200 OK in 28ms (Views: 23.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:00:32 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.0ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 14:00:45 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 363ms (Views: 352.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:00:46 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.0ms)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:00:46 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (1.7ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 14:01:05 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 326ms (Views: 322.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:01:06 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.5ms)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:01:06 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.0ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 14:01:25 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 337ms (Views: 329.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:01:26 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.0ms)
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:01:26 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.7ms)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:01:28 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.0ms)
+Completed 200 OK in 27ms (Views: 22.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:01:28 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.1ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 14:03:52 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 375ms (Views: 365.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:03:53 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.6ms)
+Completed 200 OK in 9ms (Views: 5.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:03:53 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (1.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (4.3ms)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:03:55 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (2.0ms)
+Completed 200 OK in 36ms (Views: 30.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:03:55 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (1.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.5ms)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:03:56 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.4ms)
+Completed 200 OK in 55ms (Views: 45.4ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:03:56 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (1.8ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:03:57 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.2ms)
+Completed 200 OK in 28ms (Views: 23.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:03:57 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.5ms)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:03:59 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (2.1ms)
+Completed 200 OK in 38ms (Views: 32.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:03:59 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (1.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (4.8ms)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:04:00 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.7ms)
+Completed 200 OK in 35ms (Views: 29.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:04:00 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.4ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:04:01 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (2.1ms)
+Completed 200 OK in 39ms (Views: 33.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:04:01 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.1ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:14:34 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (2.2ms)
+Completed 200 OK in 43ms (Views: 32.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:14:35 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (1.8ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:14:36 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.5ms)
+Completed 200 OK in 36ms (Views: 30.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:14:36 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (1.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.1ms)
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:14:38 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.1ms)
+Completed 200 OK in 28ms (Views: 17.0ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:14:38 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (1.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.5ms)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:14:39 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.9ms)
+Completed 200 OK in 39ms (Views: 34.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:14:40 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.4ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 14:17:01 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (2.0ms)
+Completed 200 OK in 35ms (Views: 29.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 14:17:01 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.6ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.3ms)
+
+
