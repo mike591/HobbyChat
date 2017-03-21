@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Board.create(name: 'Art', image_url: "art.png");
-Board.create(name: 'Games', image_url: "games.png");
-Board.create(name: 'Sports', image_url: "sports.png");
-Board.create(name: 'Cats', image_url: "cats.png");
-Board.create(name: 'News', image_url: "news.png");
-Board.create(name: 'Coding', image_url: "coding.png");
+Board.create(name: 'Art', image_url: "art.jpeg");
+Board.create(name: 'Games', image_url: "games.jpeg");
+Board.create(name: 'Sports', image_url: "sports.jpeg");
+Board.create(name: 'Cats', image_url: "cats.jpeg");
+Board.create(name: 'News', image_url: "news.jpeg");
+Board.create(name: 'Coding', image_url: "codes.jpeg");

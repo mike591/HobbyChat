@@ -25,8 +25,12 @@ class Board extends React.Component {
     let boards = [];
     Object.keys(this.props.boards).forEach((key) => {
       let board = this.props.boards[key];
+      let style = {
+        backgroundImage: `url(/assets/${board.image_url})`
+      }
+
       boards.push(
-        <li className="board_tile_item" key={board.id}>{board.name}</li>
+        <li style={style} className="board_tile_item" key={board.id}>{board.name}</li>
       )
     })
     return boards
