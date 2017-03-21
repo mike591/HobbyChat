@@ -37,7 +37,7 @@ class Board extends React.Component {
       }
 
       boards.push(
-        <li style={style} onClick={this.goToMessage(board.name)} className="board_tile_item" key={board.id}>{board.name}</li>
+        <li style={style} onClick={this.goToMessage(board.id)} className="board_tile_item" key={board.id}>{board.name}</li>
       )
     })
     return boards
