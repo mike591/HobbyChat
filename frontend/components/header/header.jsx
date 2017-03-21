@@ -8,6 +8,7 @@ class Header extends React.Component {
     super(props);
 
     this.logout = this.logout.bind(this);
+    this.returnToDashboard = this.returnToDashboard.bind(this);
   }
 
   logout() {
@@ -15,11 +16,15 @@ class Header extends React.Component {
       .then(res => {window.location.href = `${SIGN_IN_PAGE}`});
   }
 
+  returnToDashboard() {
+    hashHistory.push('/');
+  }
+
 
   render() {
     return(
       <div className="header">
-        <h1 className="header_title">HobbyChat</h1>
+        <h1 onClick={this.returnToDashboard} className="header_title">HobbyChat</h1>
         <button className="logout_button" onClick={this.logout}>Log Out</button>
       </div>
     )
