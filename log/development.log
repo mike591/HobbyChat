@@ -13176,3 +13176,59 @@ Processing by HomeController#show as HTML
 Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.0ms)
 
 
+Started POST "/auth/google_oauth2" for 127.0.0.1 at 2017-03-21 12:47:15 -0700
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=0788cf1b5bcfb09f061c7b833dc745d194f88d4ee823b194&code=4/x1QtaduWDDoxWdszWYRF5Hz7ZBd-txpONEoDYYRixsI" for 127.0.0.1 at 2017-03-21 12:47:16 -0700
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"0788cf1b5bcfb09f061c7b833dc745d194f88d4ee823b194", "code"=>"4/x1QtaduWDDoxWdszWYRF5Hz7ZBd-txpONEoDYYRixsI", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlwVBNrcWHz88K1n19SCZXLhIZsPH_t3enJtPG6WG6LRrZA13otb9o7fijAu_5z8eWtbCP2wteedOwWfbOuRj9ZJK0p23oKnuU41YRbAzJukf9hDl1l9xn4u72nraA"], ["oauth_expires_at", 2017-03-21 20:47:16 UTC], ["updated_at", 2017-03-21 19:47:16 UTC], ["id", 1]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 30ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-21 12:47:16 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 51ms (Views: 41.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-21 12:47:17 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.8ms)
+Completed 200 OK in 13ms (Views: 9.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-21 12:47:17 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (1.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.3ms)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 1.0ms)
+
+
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2188951231143677490);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMessages (20170321195525)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(2188951231143677490)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2188951231143677490);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMessages (20170321195525)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE TABLE "messages" ("id" serial primary key, "post" character varying, "board_id" integer, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170321195525"]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2188951231143677490)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
