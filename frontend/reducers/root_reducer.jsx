@@ -4,7 +4,8 @@ import BoardReducer from './board_reducer';
 
 const rootReducer = combineReducers({
   session: SessionReducer,
-  boards: BoardReducer
+  boards: BoardReducer,
+  messages: MessageReducer
 });
 
 export default rootReducer;
