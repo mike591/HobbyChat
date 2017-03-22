@@ -21,7 +21,12 @@ class Message extends React.Component {
 
   handleEnter(e) {
     if (e.keyCode == 13) {
-      App.room.speak(e.target.value);
+      let message = {
+        post: e.target.value,
+        user_id: this.props.currentUser.id,
+        board_id: this.props.board_id
+      }
+      App.room.speak(message);
       e.target.value = "";
     }
   }
