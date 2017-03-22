@@ -6,6 +6,7 @@ class Message extends React.Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
   }
 
   componentWillMount() {
@@ -17,6 +18,13 @@ class Message extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
   };
+
+  handleEnter(e) {
+    if (e.keyCode == 13) {
+      App.room.speak(e.target.value);
+      e.target.value = "";
+    }
+  }
 
   render() {
 
@@ -30,7 +38,7 @@ class Message extends React.Component {
             <li>Test Test Test Test</li>
           </ul>
           <form className="message_text_box" onSubmit={this.handleSubmit}>
-            <input type="text"/>
+            <input type="text" onKeyUp={this.handleEnter} />
           </form>
         </div>
       </div>
