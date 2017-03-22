@@ -18182,3 +18182,746 @@ Processing by BoardsController#index as */*
 Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-22 13:54:35 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:StaticPagesController> at /home/michael/Desktop/HobbyChat/app/controllers/static_pages_controller.rb:2)
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 568ms (ActiveRecord: 3.7ms)
+
+
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from initialize at /home/michael/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb:7)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from initialize at /home/michael/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb:8)
+
+ExecJS::RuntimeError - SyntaxError: [stdin]:1:48: reserved word 'with':
+  compile ((execjs):7528:in `'
+  eval (eval at <anonymous> ((execjs):7539:in `'
+  (execjs):7539:in `'
+  (execjs):7545:in `'
+  require.../../package.json.name ((execjs):1:in `'
+  Object.<anonymous> ((execjs):1:in `'
+  Module._compile (module.js:541:in `'
+  Object.Module._extensions..js (module.js:550:in `'
+  Module.load (module.js:458:in `'
+  tryModuleLoad (module.js:417:in `'
+  Function.Module._load (module.js:409:in `'
+  Function.Module.runMain (module.js:575:in `'
+  startup (node.js:160:in `'
+  node.js:456:in `'
+  execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+  execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+  execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+  coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+  sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+  sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+  sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+  sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+  sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+  sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+  sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+  sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+  sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+  sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+  sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+  sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+  sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+  sprockets (3.7.1) lib/sprockets/base.rb:73:in `find_all_linked_assets'
+  sprockets (3.7.1) lib/sprockets/manifest.rb:142:in `block in find'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:114:in `block (2 levels) in logical_paths'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:228:in `block in stat_tree'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:212:in `block in stat_directory'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:209:in `each'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:209:in `stat_directory'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:227:in `stat_tree'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:105:in `each'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:105:in `block in logical_paths'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:104:in `each'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:104:in `logical_paths'
+  sprockets (3.7.1) lib/sprockets/manifest.rb:140:in `find'
+  sprockets-rails (3.2.0) lib/sprockets/railtie.rb:50:in `each'
+  sprockets-rails (3.2.0) lib/sprockets/railtie.rb:50:in `map'
+  sprockets-rails (3.2.0) lib/sprockets/railtie.rb:50:in `precompiled_assets'
+  sprockets-rails (3.2.0) lib/sprockets/railtie.rb:35:in `asset_precompiled?'
+  sprockets-rails (3.2.0) lib/sprockets/railtie.rb:251:in `block (3 levels) in <class:Railtie>'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:359:in `precompiled?'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:363:in `raise_unless_precompiled_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:348:in `find_debug_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:229:in `block in lookup_debug_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:242:in `block in resolve_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `each'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `detect'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `resolve_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:228:in `lookup_debug_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:170:in `block in stylesheet_link_tag'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:169:in `map'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:169:in `stylesheet_link_tag'
+  app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___3638919866572533920_70176382312920'
+  actionview (5.0.1) lib/action_view/template.rb:159:in `block in render'
+  activesupport (5.0.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.0.1) lib/action_view/template.rb:354:in `instrument'
+  actionview (5.0.1) lib/action_view/template.rb:157:in `render'
+  actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+  actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+  actionpack (5.0.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.0.1) lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+  actionpack (5.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/michael/.rbenv/versions/2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (5.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.0.1) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/ff1baf0ba290e3d1/variables" for 127.0.0.1 at 2017-03-22 13:54:36 -0700
+Started GET "/" for 127.0.0.1 at 2017-03-22 13:54:51 -0700
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 174ms (ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from initialize at /home/michael/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb:7)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from initialize at /home/michael/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb:8)
+
+ExecJS::RuntimeError - SyntaxError: [stdin]:1:48: reserved word 'with':
+  compile ((execjs):7528:in `'
+  eval (eval at <anonymous> ((execjs):7539:in `'
+  (execjs):7539:in `'
+  (execjs):7545:in `'
+  require.../../package.json.name ((execjs):1:in `'
+  Object.<anonymous> ((execjs):1:in `'
+  Module._compile (module.js:541:in `'
+  Object.Module._extensions..js (module.js:550:in `'
+  Module.load (module.js:458:in `'
+  tryModuleLoad (module.js:417:in `'
+  Function.Module._load (module.js:409:in `'
+  Function.Module.runMain (module.js:575:in `'
+  startup (node.js:160:in `'
+  node.js:456:in `'
+  execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+  execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+  execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+  coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+  sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+  sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+  sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+  sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+  sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+  sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+  sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+  sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+  sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+  sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+  sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+  sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+  sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+  sprockets (3.7.1) lib/sprockets/base.rb:73:in `find_all_linked_assets'
+  sprockets (3.7.1) lib/sprockets/manifest.rb:142:in `block in find'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:114:in `block (2 levels) in logical_paths'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:228:in `block in stat_tree'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:212:in `block in stat_directory'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:209:in `each'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:209:in `stat_directory'
+  sprockets (3.7.1) lib/sprockets/path_utils.rb:227:in `stat_tree'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:105:in `each'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:105:in `block in logical_paths'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:104:in `each'
+  sprockets (3.7.1) lib/sprockets/legacy.rb:104:in `logical_paths'
+  sprockets (3.7.1) lib/sprockets/manifest.rb:140:in `find'
+  sprockets-rails (3.2.0) lib/sprockets/railtie.rb:50:in `each'
+  sprockets-rails (3.2.0) lib/sprockets/railtie.rb:50:in `map'
+  sprockets-rails (3.2.0) lib/sprockets/railtie.rb:50:in `precompiled_assets'
+  sprockets-rails (3.2.0) lib/sprockets/railtie.rb:35:in `asset_precompiled?'
+  sprockets-rails (3.2.0) lib/sprockets/railtie.rb:251:in `block (3 levels) in <class:Railtie>'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:359:in `precompiled?'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:363:in `raise_unless_precompiled_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:348:in `find_debug_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:229:in `block in lookup_debug_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:242:in `block in resolve_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `each'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `detect'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `resolve_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:228:in `lookup_debug_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:170:in `block in stylesheet_link_tag'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:169:in `map'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:169:in `stylesheet_link_tag'
+  app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___3638919866572533920_70176397991540'
+  actionview (5.0.1) lib/action_view/template.rb:159:in `block in render'
+  activesupport (5.0.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.0.1) lib/action_view/template.rb:354:in `instrument'
+  actionview (5.0.1) lib/action_view/template.rb:157:in `render'
+  actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+  actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+  actionpack (5.0.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.0.1) lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+  actionpack (5.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/michael/.rbenv/versions/2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (5.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.0.1) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/796927073a7f818f/variables" for 127.0.0.1 at 2017-03-22 13:54:52 -0700
+Started GET "/" for 127.0.0.1 at 2017-03-22 13:55:33 -0700
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 715ms (Views: 713.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-22 13:55:35 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 13:55:35 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+Started GET "/" for 127.0.0.1 at 2017-03-22 13:55:50 -0700
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 220ms (ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from initialize at /home/michael/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb:7)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from initialize at /home/michael/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb:8)
+
+ExecJS::RuntimeError - SyntaxError: [stdin]:1:48: reserved word 'with':
+  compile ((execjs):7528:in `'
+  eval (eval at <anonymous> ((execjs):7539:in `'
+  (execjs):7539:in `'
+  (execjs):7545:in `'
+  require.../../package.json.name ((execjs):1:in `'
+  Object.<anonymous> ((execjs):1:in `'
+  Module._compile (module.js:541:in `'
+  Object.Module._extensions..js (module.js:550:in `'
+  Module.load (module.js:458:in `'
+  tryModuleLoad (module.js:417:in `'
+  Function.Module._load (module.js:409:in `'
+  Function.Module.runMain (module.js:575:in `'
+  startup (node.js:160:in `'
+  node.js:456:in `'
+  execjs (2.7.0) lib/execjs/external_runtime.rb:39:in `exec'
+  execjs (2.7.0) lib/execjs/external_runtime.rb:21:in `eval'
+  execjs (2.7.0) lib/execjs/external_runtime.rb:46:in `call'
+  coffee-script (2.4.1) lib/coffee_script.rb:78:in `compile'
+  sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:21:in `block in call'
+  sprockets (3.7.1) lib/sprockets/cache.rb:85:in `fetch'
+  sprockets (3.7.1) lib/sprockets/coffee_script_processor.rb:20:in `call'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+  sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+  sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+  sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+  sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.7.1) lib/sprockets/bundle.rb:23:in `block in call'
+  sprockets (3.7.1) lib/sprockets/utils.rb:200:in `dfs'
+  sprockets (3.7.1) lib/sprockets/bundle.rb:24:in `call'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:75:in `call_processor'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:57:in `block in call_processors'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `reverse_each'
+  sprockets (3.7.1) lib/sprockets/processor_utils.rb:56:in `call_processors'
+  sprockets (3.7.1) lib/sprockets/loader.rb:134:in `load_from_unloaded'
+  sprockets (3.7.1) lib/sprockets/loader.rb:60:in `block in load'
+  sprockets (3.7.1) lib/sprockets/loader.rb:317:in `fetch_asset_from_dependency_cache'
+  sprockets (3.7.1) lib/sprockets/loader.rb:44:in `load'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:20:in `block in initialize'
+  sprockets (3.7.1) lib/sprockets/cached_environment.rb:47:in `load'
+  sprockets (3.7.1) lib/sprockets/base.rb:66:in `find_asset'
+  sprockets (3.7.1) lib/sprockets/base.rb:92:in `[]'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:355:in `find_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:347:in `find_debug_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:229:in `block in lookup_debug_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:242:in `block in resolve_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `each'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `detect'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:241:in `resolve_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:228:in `lookup_debug_asset'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:141:in `block in javascript_include_tag'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:140:in `map'
+  sprockets-rails (3.2.0) lib/sprockets/rails/helper.rb:140:in `javascript_include_tag'
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb___3638919866572533920_47058739380580'
+  actionview (5.0.1) lib/action_view/template.rb:159:in `block in render'
+  activesupport (5.0.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.0.1) lib/action_view/template.rb:354:in `instrument'
+  actionview (5.0.1) lib/action_view/template.rb:157:in `render'
+  actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:66:in `render_with_layout'
+  actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (5.0.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.0.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.0.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.0.1) lib/action_view/rendering.rb:103:in `_render_template'
+  actionpack (5.0.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.0.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.0.1) lib/action_controller/metal/renderers.rb:142:in `render_to_body'
+  actionpack (5.0.1) lib/abstract_controller/rendering.rb:26:in `render'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.0.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/michael/.rbenv/versions/2.3.1/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (5.0.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.0.1) lib/action_controller/metal/implicit_render.rb:36:in `default_render'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 13:55:50 -0700
+Started POST "/__better_errors/ccc87ce146c242ee/variables" for 127.0.0.1 at 2017-03-22 13:55:50 -0700
+Started GET "/" for 127.0.0.1 at 2017-03-22 13:57:52 -0700
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 290ms (Views: 285.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-22 13:57:53 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 13:57:53 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+Started POST "/auth/google_oauth2" for 127.0.0.1 at 2017-03-22 13:59:22 -0700
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=acc0758e3dedb764d1f4077686216616615221a56168f86c&code=4/_sDdSWpBy70cP0P9jih0lS48JdOEr4LJ4rU41L6DGzE" for 127.0.0.1 at 2017-03-22 13:59:22 -0700
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"acc0758e3dedb764d1f4077686216616615221a56168f86c", "code"=>"4/_sDdSWpBy70cP0P9jih0lS48JdOEr4LJ4rU41L6DGzE", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlwWBNWFQauLNZcZ4IGBvU3IBVSW1_DWmQUrPUwp0p2ENTst8CZywZhP497Mj9zNGMtvBFoW41kyYxDS7iBBT3koUTASSSwu1SZw8xaEqA6-mz2Y7Wp6N03aNr7cdw"], ["oauth_expires_at", 2017-03-22 21:59:22 UTC], ["updated_at", 2017-03-22 20:59:23 UTC], ["id", 1]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 19ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-22 13:59:23 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 45ms (Views: 41.3ms | ActiveRecord: 0.8ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 13:59:23 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-22 13:59:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 13:59:24 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-22 13:59:57 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 356ms (Views: 351.5ms | ActiveRecord: 1.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 13:59:57 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-22 13:59:58 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 13:59:58 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-22 13:59:58 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+RoomChannel is transmitting the subscription confirmation
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.6ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-22 13:59:58 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (12.9ms)
+Completed 200 OK in 22ms (Views: 13.8ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-22 14:04:17 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 14:04:18 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-22 14:04:42 -0700
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:StaticPagesController> at /home/michael/Desktop/HobbyChat/app/controllers/static_pages_controller.rb:2)
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 950ms (Views: 913.4ms | ActiveRecord: 5.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 14:04:43 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-22 14:04:43 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 14:04:43 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-22 14:04:43 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (2.9ms)
+Completed 200 OK in 15ms (Views: 11.3ms | ActiveRecord: 1.6ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-22 14:04:44 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (15.2ms)
+Completed 200 OK in 24ms (Views: 14.8ms | ActiveRecord: 6.5ms)
+
+
+RoomChannel#speak({"message"=>"hello"})
+[ActionCable] Broadcasting to room_channel: {:message=>"hello"}
+RoomChannel transmitting {"message"=>"hello"} (via streamed from room_channel)
+Started GET "/" for 127.0.0.1 at 2017-03-22 14:05:36 -0700
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 64ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-22 14:05:36 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 14:05:36 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/auth/google_oauth2" for 127.0.0.1 at 2017-03-22 14:05:38 -0700
+(google_oauth2) Request phase initiated.
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 14:05:39 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/auth/google_oauth2/callback?state=39ac933eca29c1fa4ef52b1a7d85d003708cb2bf2d0e933d&code=4/z1m1WA4Wd3WMzmoNEDeDRlnxeNxzeFaGrnWDK7JFkGI" for 127.0.0.1 at 2017-03-22 14:06:04 -0700
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"39ac933eca29c1fa4ef52b1a7d85d003708cb2bf2d0e933d", "code"=>"4/z1m1WA4Wd3WMzmoNEDeDRlnxeNxzeFaGrnWDK7JFkGI", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlsWBIuC5N0e7-TIO0f3dBEBzyXHoY_aYGagdMku4GKIehXfWfFhMMJRXYfm5iwZa9rexESXKKj8TfsDfqcoyy864LLQDFuZYLUa410s7bLR2g80Kf3tm2DLjaui"], ["oauth_expires_at", 2017-03-22 22:06:05 UTC], ["updated_at", 2017-03-22 21:06:05 UTC], ["id", 1]]
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 36ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-22 14:06:05 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 45ms (Views: 41.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-22 14:06:05 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 14:06:05 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-22 14:06:05 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.6ms)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 1.3ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-22 14:06:05 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.3ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.5ms)
+
+
+RoomChannel#speak({"message"=>"hello"})
+[ActionCable] Broadcasting to room_channel: {:message=>"hello"}
+RoomChannel transmitting {"message"=>"hello"} (via streamed from room_channel)
+RoomChannel transmitting {"message"=>"hello"} (via streamed from room_channel)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-22 14:06:22 -0700
+RoomChannel stopped streaming from room_channel

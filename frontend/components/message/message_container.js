@@ -15,7 +15,9 @@ const mapStateToProps = (state, props) => {
 
   return ({
     board_id: board_id,
-    board_name: board_name
+    board_name: board_name,
+    currentUser: state.session.currentUser,
+    messages: state.messages
   });
 };
 
