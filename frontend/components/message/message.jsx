@@ -7,6 +7,7 @@ class Message extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
+    this.getMessages = this.getMessages.bind(this);
   }
 
   componentWillMount() {
@@ -31,7 +32,13 @@ class Message extends React.Component {
     }
   }
 
+  getMessages() {
+    
+  }
+
   render() {
+
+    let message_list = this.getMessages();
 
     return (
       <div className="message_page">

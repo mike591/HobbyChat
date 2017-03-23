@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'room/show'
+  post 'room/create'
 
   get 'boards/index'
   get '/show_current_user', to: 'sessions#show_current_user'

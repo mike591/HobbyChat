@@ -19500,3 +19500,2705 @@ RoomChannel#speak({"message"=>{"post"=>"hi", "user_id"=>1, "board_id"=>1}})
   [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("post", "board_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["post", "hi"], ["board_id", 1], ["user_id", 1], ["created_at", 2017-03-22 22:14:40 UTC], ["updated_at", 2017-03-22 22:14:40 UTC]]
   [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+Started GET "/" for 127.0.0.1 at 2017-03-23 10:00:34 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 975ms (Views: 964.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 10:00:36 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 10:00:36 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/auth/google_oauth2" for 127.0.0.1 at 2017-03-23 10:00:39 -0700
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=7776774f9470ccf109cb7a5a1b2804b802c0e8cbc87b87a7&code=4/n_DSKbL80nawMaxa9H2AS3JOedXO_WHxn5qTFD5-hg8" for 127.0.0.1 at 2017-03-23 10:00:40 -0700
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"7776774f9470ccf109cb7a5a1b2804b802c0e8cbc87b87a7", "code"=>"4/n_DSKbL80nawMaxa9H2AS3JOedXO_WHxn5qTFD5-hg8", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlwXBFNmbCMQ6uFOdJ-QpWThmPwwDT-l4ijs69FFIgLYezseqq4qvGcEUbHlGiHCZKqT5HSYDtJK7GGhaZ63klJbt1f_PXvgqZ8v8BHANLRAa3tkHN7CYDjFqjtmlw"], ["oauth_expires_at", 2017-03-23 18:00:40 UTC], ["updated_at", 2017-03-23 17:00:40 UTC], ["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 67ms (ActiveRecord: 15.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-23 10:00:40 -0700
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:StaticPagesController> at /home/michael/Desktop/HobbyChat/app/controllers/static_pages_controller.rb:2)
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 64ms (Views: 56.6ms | ActiveRecord: 0.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 10:00:40 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 10:00:40 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 10:00:40 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 10:00:41 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.8ms)
+Completed 200 OK in 16ms (Views: 11.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 10:00:41 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (1.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (17.1ms)
+Completed 200 OK in 33ms (Views: 19.4ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 10:00:42 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.9ms)
+Completed 200 OK in 16ms (Views: 12.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 10:00:42 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.5ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.6ms)
+
+
+RoomChannel#speak({"message"=>{"post"=>"hello", "user_id"=>1, "board_id"=>2}})
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "messages" ("post", "board_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["post", "hello"], ["board_id", 2], ["user_id", 1], ["created_at", 2017-03-23 17:00:50 UTC], ["updated_at", 2017-03-23 17:00:50 UTC]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2017-03-23 12:15:34 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 302ms (Views: 294.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:15:35 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:15:35 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/auth/google_oauth2" for 127.0.0.1 at 2017-03-23 12:15:36 -0700
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=5da6ec7db1b17324b7b85f580add8850fbaea6f91387c2ec&code=4/qqzQF3urYnh78mwBcG23u5HGTzwlq4NuWnmopNMyq_8" for 127.0.0.1 at 2017-03-23 12:15:37 -0700
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"5da6ec7db1b17324b7b85f580add8850fbaea6f91387c2ec", "code"=>"4/qqzQF3urYnh78mwBcG23u5HGTzwlq4NuWnmopNMyq_8", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlwXBFWKrX7Xsf1bPN9WkmYsG4Py0MsU8aKpjS7C4YcB0_hJtP2sir40096zGq5oXEyQGxqMWwTjS6an8SzbzehW_c7FP6NJaxIEV3uZdFhsSBuuJfY9i_Hx5k2w3A"], ["oauth_expires_at", 2017-03-23 20:15:37 UTC], ["updated_at", 2017-03-23 19:15:37 UTC], ["id", 1]]
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 39ms (ActiveRecord: 11.9ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-23 12:15:37 -0700
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:StaticPagesController> at /home/michael/Desktop/HobbyChat/app/controllers/static_pages_controller.rb:2)
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 36ms (Views: 31.8ms | ActiveRecord: 0.6ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:15:37 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:15:38 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:15:38 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:15:38 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.7ms)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.7ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:15:38 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (19.4ms)
+Completed 200 OK in 31ms (Views: 22.6ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-23 12:16:10 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 167ms (Views: 163.2ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:16:10 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:16:10 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:16:10 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:16:10 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.6ms)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:16:10 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (1.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.8ms)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-23 12:16:54 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 81ms (Views: 78.4ms | ActiveRecord: 0.3ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:16:55 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:16:55 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:16:55 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:16:55 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.7ms)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.6ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:16:55 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.4ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-23 12:17:04 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 89ms (Views: 86.4ms | ActiveRecord: 0.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:17:04 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:17:05 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:17:05 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:17:05 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.6ms)
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.3ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:17:05 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (2.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (4.2ms)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-23 12:17:31 -0700
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 67ms (Views: 57.2ms | ActiveRecord: 1.1ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:17:31 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:17:32 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:17:32 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:17:32 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.5ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.3ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:17:32 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.1ms)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:17:38 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.6ms)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:17:38 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (1.7ms)
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:17:43 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.8ms)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:17:43 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (1.4ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:17:43 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (2.4ms)
+Completed 200 OK in 44ms (Views: 37.7ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:17:43 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (1.8ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:17:45 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.4ms)
+Completed 200 OK in 34ms (Views: 23.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:17:45 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.6ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:17:45 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.3ms)
+Completed 200 OK in 50ms (Views: 40.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:17:45 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.0ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:17:46 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.1ms)
+Completed 200 OK in 29ms (Views: 21.3ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:17:46 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (2.2ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:17:47 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.5ms)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:17:47 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (1.6ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:17:47 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (2.1ms)
+Completed 200 OK in 49ms (Views: 39.2ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:17:47 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (1.7ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.4ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:32:19 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/" for 127.0.0.1 at 2017-03-23 12:33:36 -0700
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 296ms (Views: 294.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:33:37 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:33:37 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:43:28 -0700
+Processing by RoomController#create as */*
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+  actionpack (5.0.1) lib/action_controller/metal/request_forgery_protection.rb:195:in `handle_unverified_request'
+  actionpack (5.0.1) lib/action_controller/metal/request_forgery_protection.rb:223:in `handle_unverified_request'
+  actionpack (5.0.1) lib/action_controller/metal/request_forgery_protection.rb:218:in `verify_authenticity_token'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:170:in `block in halting'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `each'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:454:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:43:35 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:43:35 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:44:07 -0700
+Processing by RoomController#create as */*
+Completed 400 Bad Request in 7ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:18:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:44:14 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:44:14 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:44:37 -0700
+Processing by RoomController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:18:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:44:56 -0700
+Processing by RoomController#create as */*
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:45:19 -0700
+Completed 400 Bad Request in 28963ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:19:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:45:25 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:45:25 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:45:25 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:45:25 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:45:25 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:45:25 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:45:25 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:45:25 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:45:25 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:45:25 -0700
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:46:14 -0700
+Processing by RoomController#create as */*
+  Parameters: {":post"=>"\"hello\"", ":user_id"=>"1", ":board_id"=>"1"}
+Completed 400 Bad Request in 9428ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:19:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:46:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:46:24 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:46:24 -0700
+RoomChannel stopped streaming from room_channel
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:46:44 -0700
+Processing by RoomController#create as */*
+  Parameters: {"message"=>{":post"=>"\"hello\"", ":user_id"=>"1", ":board_id"=>"1"}}
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:46:50 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:46:50 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:46:50 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Unpermitted parameters: :post, :user_id, :board_id
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 5479ms (Views: 0.2ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:47:47 -0700
+Processing by RoomController#create as */*
+  Parameters: {"message"=>{":post"=>"\"hello\"", ":user_id"=>"1", ":board_id"=>"1"}}
+Unpermitted parameters: :post, :user_id, :board_id
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 6967ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:47:56 -0700
+Processing by RoomController#create as */*
+  Parameters: {"message"=>{":post"=>"\"hello\"", ":user_id"=>"1", ":board_id"=>"1"}}
+Unpermitted parameters: :post, :user_id, :board_id
+Unpermitted parameters: :post, :user_id, :board_id
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:48:18 -0700
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 22199ms (Views: 0.3ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:48:18 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:48:18 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:48:18 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:48:18 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:48:18 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:48:18 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:48:18 -0700
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:48:30 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundaryTG1Sgo4hj2NhHDl4\r\nContent-Disposition: form-data; name"=>"\"message[post]\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundaryTG1Sgo4hj2NhHDl4\r\nContent-Disposition: form-data; name=\"message[user_id]\"\r\n\r\n1\r\n------WebKitFormBoundaryTG1Sgo4hj2NhHDl4\r\nContent-Disposition: form-data; name=\"message[board_id]\"\r\n\r\n1\r\n------WebKitFormBoundaryTG1Sgo4hj2NhHDl4--\r\n"}
+Completed 400 Bad Request in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:19:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:48:51 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundaryUXoZpmP1CjNZjkoX\r\nContent-Disposition: form-data; name"=>"\"message[:post]\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundaryUXoZpmP1CjNZjkoX\r\nContent-Disposition: form-data; name=\"message[:user_id]\"\r\n\r\n1\r\n------WebKitFormBoundaryUXoZpmP1CjNZjkoX\r\nContent-Disposition: form-data; name=\"message[:board_id]\"\r\n\r\n1\r\n------WebKitFormBoundaryUXoZpmP1CjNZjkoX--\r\n"}
+Completed 400 Bad Request in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:19:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:48:58 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:48:58 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:48:58 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundaryFWdFgO3GYkW3NTzV\r\nContent-Disposition: form-data; name"=>"\"message[:post]\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundaryFWdFgO3GYkW3NTzV\r\nContent-Disposition: form-data; name=\"message[:user_id]\"\r\n\r\n1\r\n------WebKitFormBoundaryFWdFgO3GYkW3NTzV\r\nContent-Disposition: form-data; name=\"message[:board_id]\"\r\n\r\n1\r\n------WebKitFormBoundaryFWdFgO3GYkW3NTzV--\r\n"}
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:19:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:49:18 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundary4BR5Wrck6IBVRAV4\r\nContent-Disposition: form-data; name"=>"\"message[:post]\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundary4BR5Wrck6IBVRAV4\r\nContent-Disposition: form-data; name=\"message[:user_id]\"\r\n\r\n1\r\n------WebKitFormBoundary4BR5Wrck6IBVRAV4\r\nContent-Disposition: form-data; name=\"message[:board_id]\"\r\n\r\n1\r\n------WebKitFormBoundary4BR5Wrck6IBVRAV4--\r\n"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:19:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/auth/google_oauth2" for 127.0.0.1 at 2017-03-23 12:59:11 -0700
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=9196f0634670e832f8c5330ff334f9d5a9f75ee44a01ee73&code=4/BqveQs1HCW8xg_dlskDpvzjrxYui48AaZ_jL-6HMa28" for 127.0.0.1 at 2017-03-23 12:59:11 -0700
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"9196f0634670e832f8c5330ff334f9d5a9f75ee44a01ee73", "code"=>"4/BqveQs1HCW8xg_dlskDpvzjrxYui48AaZ_jL-6HMa28", "provider"=>"google_oauth2"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from create at /home/michael/Desktop/HobbyChat/app/controllers/sessions_controller.rb:3)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "117457873477340252270"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "oauth_token" = $1, "oauth_expires_at" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["oauth_token", "ya29.GlwXBCO7SUSEsmXcmeA0pCfrxNVLrGUdegg6G75ZuqHDIy3MXn-HmmR233A54KaNGslgLLjKm_fkzHahgY9X7B9RejKVpy9IomglYxavnOV8g2qY6KOwvu_2jLp1KA"], ["oauth_expires_at", 2017-03-23 20:59:11 UTC], ["updated_at", 2017-03-23 19:59:12 UTC], ["id", 1]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 38ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-23 12:59:12 -0700
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:StaticPagesController> at /home/michael/Desktop/HobbyChat/app/controllers/static_pages_controller.rb:2)
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 336ms (Views: 330.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 12:59:13 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 12:59:13 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:59:13 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.8ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.5ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:59:13 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (20.6ms)
+Completed 200 OK in 31ms (Views: 18.1ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:59:18 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.9ms)
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:59:18 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (1.6ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 12:59:20 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.8ms)
+Completed 200 OK in 26ms (Views: 16.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 12:59:20 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.8ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 12:59:35 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundary1C088MNmh0l649b8\r\nContent-Disposition: form-data; name"=>"\"message[:post]\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundary1C088MNmh0l649b8\r\nContent-Disposition: form-data; name=\"message[:user_id]\"\r\n\r\n1\r\n------WebKitFormBoundary1C088MNmh0l649b8\r\nContent-Disposition: form-data; name=\"message[:board_id]\"\r\n\r\n1\r\n------WebKitFormBoundary1C088MNmh0l649b8--\r\n"}
+Completed 400 Bad Request in 33408ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:00:09 -0700
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:00:37 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundaryQ8fxaV33yXLnjf3T--\r\n"=>nil}
+Completed 400 Bad Request in 7246ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:00:44 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:00:44 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:00:44 -0700
+RoomChannel stopped streaming from room_channel
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:00:51 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundarydJrMaXuL4fuo1Ftu\r\nContent-Disposition: form-data; name"=>"\"message[:post]\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundarydJrMaXuL4fuo1Ftu\r\nContent-Disposition: form-data; name=\"message[:user_id]\"\r\n\r\n1\r\n------WebKitFormBoundarydJrMaXuL4fuo1Ftu\r\nContent-Disposition: form-data; name=\"message[:board_id]\"\r\n\r\n1\r\n------WebKitFormBoundarydJrMaXuL4fuo1Ftu--\r\n"}
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:01:06 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:01:06 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:01:06 -0700
+Completed 400 Bad Request in 15709ms (ActiveRecord: 0.0ms)
+
+
+RoomChannel stopped streaming from room_channel
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:01:06 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:01:06 -0700
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:01:06 -0700
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:01:28 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundary4uSWnOLo9PDtsyhg\r\nContent-Disposition: form-data; name"=>"\"message[:post]\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundary4uSWnOLo9PDtsyhg--\r\n"}
+Completed 400 Bad Request in 17991ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:01:46 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:01:46 -0700
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:01:46 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:01:46 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:01:46 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:01:46 -0700
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:01:55 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundaryu7YGWxU4cfOy1tbd\r\nContent-Disposition: form-data; name"=>"\":message[:post]\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundaryu7YGWxU4cfOy1tbd--\r\n"}
+Completed 400 Bad Request in 1719ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:02:53 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundaryvlihdl89Kko7Pyhv\r\nContent-Disposition: form-data; name"=>"\"message.post\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundaryvlihdl89Kko7Pyhv\r\nContent-Disposition: form-data; name=\"message.user_id\"\r\n\r\n1\r\n------WebKitFormBoundaryvlihdl89Kko7Pyhv\r\nContent-Disposition: form-data; name=\"message.board_id\"\r\n\r\n1\r\n------WebKitFormBoundaryvlihdl89Kko7Pyhv--\r\n"}
+Completed 400 Bad Request in 30898ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:03:24 -0700
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:04:05 -0700
+Processing by RoomController#create as */*
+  Parameters: {"message: {\n\tpost: \"Hello\",\n\tuser_id: 1,\n\tboard_id: 2\n}"=>nil}
+Completed 400 Bad Request in 54099ms (ActiveRecord: 0.0ms)
+
+
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:04:59 -0700
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:05:24 -0700
+Processing by RoomController#create as */*
+  Parameters: {"{\n\tmessage: {\n\t\tpost: \"Hello\",\n\t\tuser_id: 1,\n\t\tboard_id: 2\n\t}\n}"=>nil}
+Completed 400 Bad Request in 4572ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:05:34 -0700
+Processing by RoomController#create as */*
+  Parameters: {"{\n\tmessage: {\n\t\tpost: \"Hello\",\n\t\tuser_id: 1,\n\t\tboard_id: 2\n\t}\n}"=>nil}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:05:38 -0700
+Processing by RoomController#create as */*
+  Parameters: {"{\n\tmessage: {\n\t\tpost: \"Hello\",\n\t\tuser_id: 1,\n\t\tboard_id: 2\n\t}\n}"=>nil}
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:05:51 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:05:51 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:05:51 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:05:54 -0700
+Completed 400 Bad Request in 16053ms (ActiveRecord: 0.0ms)
+
+
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:05:54 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:05:54 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:06:51 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundarypnQdAmOISVDmYTMm\r\nContent-Disposition: form-data; name"=>"\"message[post]\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundarypnQdAmOISVDmYTMm\r\nContent-Disposition: form-data; name=\"message[user_id]\"\r\n\r\n1\r\n------WebKitFormBoundarypnQdAmOISVDmYTMm\r\nContent-Disposition: form-data; name=\"message[board_id]\"\r\n\r\n1\r\n------WebKitFormBoundarypnQdAmOISVDmYTMm--\r\n"}
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:07:00 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:07:07 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:07:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:07:08 -0700
+Completed 400 Bad Request in 33082ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:07:24 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:07:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:07:24 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:07:24 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:07:24 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:07:24 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:07:24 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:07:24 -0700
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:08:32 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundaryB3oD8gPia0BIjeAh\r\nContent-Disposition: form-data; name"=>"\"message[post]\"\r\n\r\n\"hello\"\r\n------WebKitFormBoundaryB3oD8gPia0BIjeAh\r\nContent-Disposition: form-data; name=\"message[user_id]\"\r\n\r\n1\r\n------WebKitFormBoundaryB3oD8gPia0BIjeAh\r\nContent-Disposition: form-data; name=\"message[board_id]\"\r\n\r\n1\r\n------WebKitFormBoundaryB3oD8gPia0BIjeAh--\r\n"}
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:09:06 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Completed 400 Bad Request in 41343ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:09:13 -0700
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create" for 127.0.0.1 at 2017-03-23 13:09:34 -0700
+Processing by RoomController#create as */*
+  Parameters: {"------WebKitFormBoundarydPozKjxEGzU6zkhR\r\nContent-Disposition: form-data; name"=>"\"message[post]\"\r\n\r\nhello\r\n------WebKitFormBoundarydPozKjxEGzU6zkhR\r\nContent-Disposition: form-data; name=\"message[user_id]\"\r\n\r\n1\r\n------WebKitFormBoundarydPozKjxEGzU6zkhR\r\nContent-Disposition: form-data; name=\"message[board_id]\"\r\n\r\n1\r\n------WebKitFormBoundarydPozKjxEGzU6zkhR--\r\n"}
+Completed 400 Bad Request in 62886ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+
+ActionController::ParameterMissing - param is missing or the value is empty: message:
+  actionpack (5.0.1) lib/action_controller/metal/strong_parameters.rb:310:in `require'
+  app/controllers/room_controller.rb:20:in `message_params'
+  app/controllers/room_controller.rb:8:in `create'
+  actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+  activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+  actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+  actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+  actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+  actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:189:in `call!'
+  omniauth (1.6.1) lib/omniauth/strategy.rb:167:in `call'
+  omniauth (1.6.1) lib/omniauth/builder.rb:63:in `call'
+  rack (2.0.1) lib/rack/etag.rb:25:in `call'
+  rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+  rack (2.0.1) lib/rack/head.rb:12:in `call'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+  rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+  activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+  actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+  web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+  web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+  rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+  rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+  railties (5.0.1) lib/rails/engine.rb:522:in `call'
+  puma (3.7.1) lib/puma/configuration.rb:232:in `call'
+  puma (3.7.1) lib/puma/server.rb:578:in `handle_request'
+  puma (3.7.1) lib/puma/server.rb:415:in `process_client'
+  puma (3.7.1) lib/puma/server.rb:275:in `block in run'
+  puma (3.7.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:10:37 -0700
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started POST "/room/create?message[post]=%22hello%22&message[user_id]=1&message[board_id]=1" for 127.0.0.1 at 2017-03-23 13:10:42 -0700
+Processing by RoomController#create as */*
+  Parameters: {"message"=>{"post"=>"\"hello\"", "user_id"=>"1", "board_id"=>"1"}}
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:11:10 -0700
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:11:10 -0700
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:11:10 -0700
+RoomChannel stopped streaming from room_channel
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:11:10 -0700
+  [1m[36mBoard Load (25.4ms)[0m  [1m[34mSELECT  "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:11:10 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:11:10 -0700
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:11:15 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:11:15 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("post", "board_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["post", "\"hello\""], ["board_id", 1], ["user_id", 1], ["created_at", 2017-03-23 20:11:15 UTC], ["updated_at", 2017-03-23 20:11:15 UTC]]
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:11:15 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:11:15 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:11:15 -0700
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:11:15 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering room/message.json.jbuilder
+  Rendered room/message.json.jbuilder (0.4ms)
+Completed 200 OK in 32835ms (Views: 6.4ms | ActiveRecord: 35.4ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
