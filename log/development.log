@@ -22202,3 +22202,124 @@ Completed 200 OK in 32835ms (Views: 6.4ms | ActiveRecord: 35.4ms)
 RoomChannel is transmitting the subscription confirmation
 RoomChannel is streaming from room_channel
   [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages"[0m
+Started GET "/dashboard" for 127.0.0.1 at 2017-03-23 13:22:26 -0700
+DEPRECATION WARNING: before_filter is deprecated and will be removed in Rails 5.1. Use before_action instead. (called from <class:StaticPagesController> at /home/michael/Desktop/HobbyChat/app/controllers/static_pages_controller.rb:2)
+Processing by StaticPagesController#show as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering static_pages/show.html.erb within layouts/application
+  Rendered static_pages/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 325ms (Views: 303.3ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:22:27 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:22:27 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-23 13:22:27 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (1.4ms)
+Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 1.2ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-23 13:22:27 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (6.0ms)
+Completed 200 OK in 15ms (Views: 12.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/room/show?id=1" for 127.0.0.1 at 2017-03-23 13:25:37 -0700
+Processing by RoomController#show as */*
+  Parameters: {"id"=>"1"}
+  Rendering room/show.json.jbuilder
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE (id = 1)[0m
+  Rendered room/show.json.jbuilder (6.6ms)
+Completed 200 OK in 15ms (Views: 10.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:25:45 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:25:45 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel
+Started GET "/room/show?id=2" for 127.0.0.1 at 2017-03-23 13:25:46 -0700
+Processing by RoomController#show as */*
+  Parameters: {"id"=>"2"}
+  Rendering room/show.json.jbuilder
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE (id = 2)[0m
+  Rendered room/show.json.jbuilder (1.8ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/room/show?id=3" for 127.0.0.1 at 2017-03-23 13:25:49 -0700
+Processing by RoomController#show as */*
+  Parameters: {"id"=>"3"}
+  Rendering room/show.json.jbuilder
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE (id = 3)[0m
+  Rendered room/show.json.jbuilder (1.7ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/room/show?id=4" for 127.0.0.1 at 2017-03-23 13:25:51 -0700
+Processing by RoomController#show as */*
+  Parameters: {"id"=>"4"}
+  Rendering room/show.json.jbuilder
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE (id = 4)[0m
+  Rendered room/show.json.jbuilder (1.4ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/room/show?id=5" for 127.0.0.1 at 2017-03-23 13:25:54 -0700
+Processing by RoomController#show as */*
+  Parameters: {"id"=>"5"}
+  Rendering room/show.json.jbuilder
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE (id = 5)[0m
+  Rendered room/show.json.jbuilder (1.1ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/room/show?id=1" for 127.0.0.1 at 2017-03-23 13:25:55 -0700
+Processing by RoomController#show as */*
+  Parameters: {"id"=>"1"}
+  Rendering room/show.json.jbuilder
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE (id = 1)[0m
+  Rendered room/show.json.jbuilder (1.5ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/room/show?id=1" for 127.0.0.1 at 2017-03-23 13:26:04 -0700
+Processing by RoomController#show as */*
+  Parameters: {"id"=>"1"}
+  Rendering room/show.json.jbuilder
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE (board_id = 1)[0m
+  Rendered room/show.json.jbuilder (7.1ms)
+Completed 200 OK in 14ms (Views: 11.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/room/show?id=2" for 127.0.0.1 at 2017-03-23 13:26:08 -0700
+Processing by RoomController#show as */*
+  Parameters: {"id"=>"2"}
+  Rendering room/show.json.jbuilder
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE (board_id = 2)[0m
+  Rendered room/show.json.jbuilder (1.5ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/room/show?id=1" for 127.0.0.1 at 2017-03-23 13:26:10 -0700
+Processing by RoomController#show as */*
+  Parameters: {"id"=>"1"}
+  Rendering room/show.json.jbuilder
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE (board_id = 1)[0m
+  Rendered room/show.json.jbuilder (1.7ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2017-03-23 13:26:13 -0700
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-23 13:26:13 -0700
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel

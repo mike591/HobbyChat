@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Message from './message';
 import { getBoards }  from '../../actions/board_actions';
 import { getCurrentUser }  from '../../actions/session_actions';
+import { getMessages, createMessage }  from '../../actions/message_actions';
 
 const mapStateToProps = (state, props) => {
   let board_id = parseInt(props.params.board_id);
@@ -23,7 +24,9 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getBoards: () => dispatch(getBoards()),
-  getCurrentUser: () => dispatch(getCurrentUser())
+  getCurrentUser: () => dispatch(getCurrentUser()),
+  getMessages: (id) => dispatch(getMessages(id)),
+  createMessage: (message) => dispatch(createMessage(message))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Message);

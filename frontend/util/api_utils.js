@@ -12,7 +12,7 @@ export const getMessages = (id) => {
     $.ajax({
       method: "GET",
       url: "/room/show",
-      data: id
+      data: {id: id}
     })
   );
 };

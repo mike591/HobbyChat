@@ -1,6 +1,6 @@
 class RoomController < ApplicationController
   def show
-    @messages = Message.all
+    @messages = Message.where("board_id = #{params[:id]}")
     render "show.json.jbuilder"
   end
 

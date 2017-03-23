@@ -10,7 +10,7 @@ export const setMessages = (messages) => {
   });
 };
 
-export const addMEssage = (message) => {
+export const addMessage = (message) => {
   return ({
     type: ADD_MESSAGE,
     message: message
@@ -18,5 +18,9 @@ export const addMEssage = (message) => {
 };
 
 export const getMessages = (id) => dispatch => {
-  APIUtils.getMessages(id).then(res => dispatch(setMessages));
+  APIUtils.getMessages(id).then(res => dispatch(setMessages(res)));
+};
+
+export const createMessage = (message) => dispatch => {
+  APIUtils.addMessage(message).then(res => dispatch(addMessage(res)));
 };
