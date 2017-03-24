@@ -4,5 +4,6 @@
     json.user_id message.user_id
     json.board_id message.board_id
     json.post message.post
+    json.user_name message.user.name
   end
 end

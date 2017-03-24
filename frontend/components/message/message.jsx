@@ -33,7 +33,7 @@ class Message extends React.Component {
       let ul = document.getElementsByClassName("messages")[0];
       let li = document.createElement("li");
       li.className = "message_list_item";
-      li.appendChild(document.createTextNode(e.target.value));
+      li.appendChild(document.createTextNode(`${this.props.currentUser.name}: ${e.target.value}`));
       ul.appendChild(li);
       e.target.value = "";
     }
@@ -53,7 +53,7 @@ class Message extends React.Component {
     let messages = this.generateMessages();
     let messageList = []
     messages.forEach((message) => {
-      let listItem = <li className="message_list_item" key={message.id}>{message.post}</li>
+      let listItem = <li className="message_list_item" key={message.id}>{message.user_name}: {message.post}</li>
       messageList.push(listItem)
     })
 
