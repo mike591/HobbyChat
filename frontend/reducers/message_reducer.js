@@ -5,7 +5,7 @@ const MessageReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
     case SET_MESSAGES:
-      return messages;
+      return action.messages;
     case ADD_MESSAGE:
       return [...state, action.message];
     default:

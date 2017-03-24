@@ -7,12 +7,14 @@ class Message extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-    this.getMessages = this.getMessages.bind(this);
+    this.generateMessages = this.generateMessages.bind(this);
   }
 
   componentWillMount() {
     this.props.getCurrentUser().then((res) => {
-      this.props.getBoards()
+      this.props.getBoards().then((res) => {
+        this.props.getMessages(this.props.board_id)
+      })
     });
   }
 
@@ -28,26 +30,39 @@ class Message extends React.Component {
         board_id: this.props.board_id
       }
       App.room.speak(message);
+      let ul = document.getElementsByClassName("messages")[0];
+      let li = document.createElement("li");
+      li.className = "message_list_item";
+      li.appendChild(document.createTextNode(e.target.value));
+      ul.appendChild(li);
       e.target.value = "";
     }
   }
 
-  getMessages() {
-    
+  generateMessages() {
+    let messages = [];
+    Object.keys(this.props.messages).forEach((key) => {
+      let message = this.props.messages[key];
+      messages.push(message);
+    })
+    return messages;
   }
 
   render() {
 
-    let message_list = this.getMessages();
+    let messages = this.generateMessages();
+    let messageList = []
+    messages.forEach((message) => {
+      let listItem = <li className="message_list_item" key={message.id}>{message.post}</li>
+      messageList.push(listItem)
+    })
 
     return (
       <div className="message_page">
         <h1 className="message_title">{this.props.board_name}</h1>
         <div className="message_box">
           <ul className="messages">
-            <li>Test</li>
-            <li>Hello World</li>
-            <li>Test Test Test Test</li>
+            {messageList}
           </ul>
           <form className="message_text_box" onSubmit={this.handleSubmit}>
             <input type="text" onKeyUp={this.handleEnter} />
