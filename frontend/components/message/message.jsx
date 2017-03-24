@@ -8,14 +8,20 @@ class Message extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
     this.generateMessages = this.generateMessages.bind(this);
+    this.updateScroll = this.updateScroll.bind(this);
   }
 
   componentWillMount() {
     this.props.getCurrentUser().then((res) => {
       this.props.getBoards().then((res) => {
         this.props.getMessages(this.props.board_id)
+        App.cable.subscriptions.create({ channel: "RoomChannel", board_id: this.props.board_id });
       })
     });
+  }
+
+  componentDidUpdate(){
+    this.updateScroll();
   }
 
   handleSubmit(e) {
@@ -36,6 +42,7 @@ class Message extends React.Component {
       li.appendChild(document.createTextNode(`${this.props.currentUser.name}: ${e.target.value}`));
       ul.appendChild(li);
       e.target.value = "";
+      this.updateScroll();
     }
   }
 
@@ -46,6 +53,11 @@ class Message extends React.Component {
       messages.push(message);
     })
     return messages;
+  }
+
+  updateScroll() {
+    let ul = document.getElementsByClassName("messages")[0];
+    ul.scrollTop = ul.scrollHeight;
   }
 
   render() {
