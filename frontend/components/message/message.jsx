@@ -20,7 +20,11 @@ class Message extends React.Component {
     });
   }
 
-  componentDidUpdate(){
+  componentWillUnmount() {
+
+  }
+
+  componentDidUpdate() {
     this.updateScroll();
   }
 

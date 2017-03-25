@@ -8,8 +8,11 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    # ActionCable.server.broadcast 'room_channel', message: data['message']
     message = data['message']
     Message.create!(post: message['post'], user_id: message['user_id'], board_id: message['board_id'])
+
+    ActionCable.server.broadcast "room_channel_#{message['board_id']}", message: message['post']
   end
 end
+
+# http://www.thegreatcodeadventure.com/rails-5-action-cable-with-multiple-chatroom-subscriptions/
