@@ -12,6 +12,10 @@ class Message extends React.Component {
   }
 
   componentWillMount() {
+    if (App.channel) {
+      App.cable.subscriptions.remove(App.channel);
+    }
+
     this.props.getCurrentUser().then((res) => {
       this.props.getBoards().then((res) => {
         this.props.getMessages(this.props.board_id)
@@ -20,7 +24,7 @@ class Message extends React.Component {
            board_id: this.props.board_id
          }, {
            received: data => {
-              console.log(data)
+              this.props.getMessages(this.props.board_id)
             }
          });
       })
@@ -42,6 +46,7 @@ class Message extends React.Component {
         user_id: this.props.currentUser.id,
         board_id: this.props.board_id
       }
+
 
       e.target.value = "";
       this.updateScroll();
