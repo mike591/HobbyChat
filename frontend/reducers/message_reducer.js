@@ -1,4 +1,5 @@
 import { SET_MESSAGES, ADD_MESSAGE } from '../actions/message_actions';
+import merge from 'lodash/merge';
 
 const MessageReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -7,7 +8,18 @@ const MessageReducer = (state = {}, action) => {
     case SET_MESSAGES:
       return action.messages;
     case ADD_MESSAGE:
-      return [...state, action.message];
+      let m = action.message
+      let newMessage = {};
+      newMessage[m.id] = {
+        board_id: m.board_id,
+        id: m.id,
+        post: m.post,
+        user_id: m.user_id,
+        user_name: m.user.name
+      };
+      debugger
+      newState = Object.assign(state, newMessage);
+      return newState;
     default:
       return state;
   }

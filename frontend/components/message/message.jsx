@@ -15,13 +15,16 @@ class Message extends React.Component {
     this.props.getCurrentUser().then((res) => {
       this.props.getBoards().then((res) => {
         this.props.getMessages(this.props.board_id)
-        App.cable.subscriptions.create({ channel: "RoomChannel", board_id: this.props.board_id });
+        App.channel = App.cable.subscriptions.create({
+           channel: "RoomChannel",
+           board_id: this.props.board_id
+         }, {
+           received: data => {
+              console.log(data)
+            }
+         });
       })
     });
-  }
-
-  componentWillUnmount() {
-
   }
 
   componentDidUpdate() {
@@ -39,14 +42,16 @@ class Message extends React.Component {
         user_id: this.props.currentUser.id,
         board_id: this.props.board_id
       }
-      App.room.speak(message);
-      let ul = document.getElementsByClassName("messages")[0];
-      let li = document.createElement("li");
-      li.className = "message_list_item";
-      li.appendChild(document.createTextNode(`${this.props.currentUser.name}: ${e.target.value}`));
-      ul.appendChild(li);
-      e.target.value = "";
+      
+      // let ul = document.getElementsByClassName("messages")[0];
+      // let li = document.createElement("li");
+      // li.className = "message_list_item";
+      // li.appendChild(document.createTextNode(`${this.props.currentUser.name}: ${e.target.value}`));
+      // ul.appendChild(li);
+      // e.target.value = "";
+
       this.updateScroll();
+      this.props.createMessage(message);
     }
   }
 
