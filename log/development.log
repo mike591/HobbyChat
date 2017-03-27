@@ -44498,3 +44498,48 @@ Processing by BoardsController#index as */*
 Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 1.4ms)
 
 
+Unsubscribing from channel: {"channel":"RoomChannel","board_id":8}
+RoomChannel stopped streaming from room_channel_8
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-27 15:17:37 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (2.4ms)
+Completed 200 OK in 44ms (Views: 38.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-27 15:17:37 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.0ms)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.3ms)
+
+
+RoomChannel is transmitting the subscription confirmation
+RoomChannel is streaming from room_channel_11
+Started GET "/room/show?id=11" for 127.0.0.1 at 2017-03-27 15:17:37 -0700
+Processing by RoomController#show as */*
+  Parameters: {"id"=>"11"}
+  Rendering room/show.json.jbuilder
+  [1m[36mMessage Load (0.4ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE (board_id = 11)[0m
+  Rendered room/show.json.jbuilder (1.6ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/show_current_user" for 127.0.0.1 at 2017-03-27 15:17:38 -0700
+Processing by SessionsController#show_current_user as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering sessions/show_current_user.json.jbuilder
+  Rendered sessions/show_current_user.json.jbuilder (0.9ms)
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/boards/index" for 127.0.0.1 at 2017-03-27 15:17:38 -0700
+Processing by BoardsController#index as */*
+  Rendering boards/index.json.jbuilder
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  Rendered boards/index.json.jbuilder (3.4ms)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.7ms)
+
+
