@@ -42,14 +42,8 @@ class Message extends React.Component {
         user_id: this.props.currentUser.id,
         board_id: this.props.board_id
       }
-      
-      // let ul = document.getElementsByClassName("messages")[0];
-      // let li = document.createElement("li");
-      // li.className = "message_list_item";
-      // li.appendChild(document.createTextNode(`${this.props.currentUser.name}: ${e.target.value}`));
-      // ul.appendChild(li);
-      // e.target.value = "";
 
+      e.target.value = "";
       this.updateScroll();
       this.props.createMessage(message);
     }

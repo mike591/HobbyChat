@@ -10,15 +10,15 @@ const MessageReducer = (state = {}, action) => {
     case ADD_MESSAGE:
       let m = action.message
       let newMessage = {};
-      newMessage[m.id] = {
+      newMessage = {
         board_id: m.board_id,
         id: m.id,
         post: m.post,
         user_id: m.user_id,
         user_name: m.user.name
       };
-      debugger
-      newState = Object.assign(state, newMessage);
+      newState = merge({}, state);
+      newState[m.id] = newMessage;
       return newState;
     default:
       return state;
