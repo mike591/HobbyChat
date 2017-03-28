@@ -10,7 +10,7 @@ gem "pry"
 gem "pry-rails"
 gem "annotate"
 gem "better_errors"
-
+gem "rails_12factor"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
