@@ -44543,3 +44543,5 @@ Processing by BoardsController#index as */*
 Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.7ms)
 
 
+Finished "/cable/" [WebSocket] for 127.0.0.1 at 2017-03-27 15:43:51 -0700
+RoomChannel stopped streaming from room_channel_11
