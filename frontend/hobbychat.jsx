@@ -3,13 +3,18 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store.js';
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("hello");
-  const root = document.getElementById('root')
-  let store = configureStore()
 
-  // TODO testing
-  window.store = store;
+let func = function (){
+    document.addEventListener("DOMContentLoaded", () => {
+    console.log("hello");
+    const root = document.getElementById('root')
+    let store = configureStore()
 
-  ReactDOM.render(<Root store={store} />, root);
-});
+    // TODO testing
+    window.store = store;
+
+    ReactDOM.render(<Root store={store} />, root);
+  });
+}
+
+setInterval(func, 500)
