@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def show
-    if current_user
+    if !logged_in
       redirect_to dashboard_url
     end
   end
