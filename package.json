@@ -8,8 +8,8 @@
     "test": "test"
   },
   "engines": {
-    "node": "*",
-    "npm": "*"
+    "node": "",
+    "npm": ""
   },
   "scripts": {
     "postinstall": "./node_modules/.bin/webpack"
