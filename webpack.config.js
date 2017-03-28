@@ -1,7 +1,8 @@
 module.exports = {
+  context: __dirname + "/app",
   entry: './frontend/hobbychat.jsx',
   output: {
-    path: "/app/assets/javascripts",
+    path: __dirname + "/assets/javascripts",
     filename: 'bundle.js'
   },
   resolve: {
