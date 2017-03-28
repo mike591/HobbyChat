@@ -1,7 +1,14 @@
 <div class="sign_in_page">
-  <div class="sign_in_box">
-    <h1 class="welcome_text">Welcome to HobbyChat!</h1>
-    <h2 class="welcome_desc">Please Sign in to get started!</h2>
-    <%= button_to "", "/auth/google_oauth2", id: "sign_in", class: 'google_button' %>
-  </div>
+  <% if logged_in? %>
+    <main id="root">
+      <h1>HobbyChat Rails</h1>
+    </main>
+  <% else %>
+    <div class="sign_in_box">
+      <h1 class="welcome_text">Welcome to HobbyChat!</h1>
+      <h2 class="welcome_desc">Please Sign in to get started!</h2>
+      <%= button_to "", "/auth/google_oauth2", id: "sign_in", class: 'google_button' %>
+    </div>
+  <% end %>
+
 </div>
