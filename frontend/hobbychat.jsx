@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store.js';
 
-console.log("hobbychat jsx loaded");
-
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root')
   let store = configureStore()
