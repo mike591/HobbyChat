@@ -4,10 +4,10 @@
 
 # Screen shots:
 ![Home][home]
-[home]: docs/images/hobby-home.png
+[home]: /docs/images/hobby-home.png
 
 ![Boards][board]
-[board]: docs/images/hobby-board.png
+[board]: /docs/images/hobby-board.png
 
 ![Chat][chat]
-[chat]: docs/images/hobby-chat.png
+[chat]: /docs/images/hobby-chat.png
