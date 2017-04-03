@@ -1,6 +1,6 @@
 # HobbyChat
 
-[Click me to go see HobbyChat live!](www.hobbychat.club)
+[Click me to go see HobbyChat live!](http://www.hobbychat.club)
 
 # Screen shots:
 ![Home](docs/images/hobby-home.png)
